@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+/* 
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,68 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* 
+.lexend-<uniquifier> {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+html, body, #root {
+  background-color: #A5D7E8;
+}
+
+.App {
+  text-align: center;
+}
+
+.lexend-header {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: xx-large;
+  /* color:red; */
+}
+
+.lexend-mini {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
+  /* color:red; */
+}
+
+.my-landing {
+  background-color: #576CBC;
+  color: #b8dbe7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.my-search {
+  width: 50%;
+  height: 50px;
+}
+
+.search-suggestion {
+  background-color: #B6EADA;
+  opacity: 0.5;
+  width: 50%;
+
+}
+
+.search-suggestion p{
+  
+  opacity: 0.9;
+  color: black;
+  font-size:medium;
 }

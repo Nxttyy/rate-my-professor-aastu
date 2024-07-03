@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+</style>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
