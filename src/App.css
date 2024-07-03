@@ -44,11 +44,22 @@
 } */
 
 html, body, #root {
-  background-color: #A5D7E8;
+  background-color: #17212b;
 }
 
 .App {
   text-align: center;
+    color: #b8dbe7;
+
+}
+
+::placeholder {
+  color: #b3c1d2;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #b3c1d2;
 }
 
 .lexend-header {
@@ -70,8 +81,7 @@ html, body, #root {
 }
 
 .my-landing {
-   background-color: #576CBC; 
-  color: #b8dbe7;
+   background-color: #232e3c; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,14 +91,17 @@ html, body, #root {
 
 
 .my-search {
-  width: 50%;
+  width: 75%;
+/*  color:red;*/
   height: 50px;
+  background-color: #121820;
+  color: #b3c1d2;
 }
 
 .search-suggestion {
   background-color: #B6EADA;
   opacity: 0.5;
-  width: 50%;
+  width: 100%;
 
 }
 
@@ -103,4 +116,28 @@ html, body, #root {
   color: #0B2447;
   display: flex;
   flex-direction: row;
+}
+
+.search-img {
+  width: 30px;
+  height: 30px;
+}
+
+.add-prof {
+
+}
+
+.bordered-div {
+  border: 2px solid red;
+  background-color: #5288c1;
+  color: #ffffff;
+}
+
+.my-button {
+  background-color: #5288c1;
+  color: #ffffff;
+}
+
+.hint {
+  color: #708499;
 }
