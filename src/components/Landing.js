@@ -20,11 +20,7 @@ function Landing() {
       />
       {suggestions.map((element, index) => (
         <div className="search-suggestion my-2 pt-2 px-3 rounded text-start d-flex ">
-          <img
-            className="search-img mx-2 pb-1"
-            src={teacher}
-            alt="prof. image"
-          />
+        
 
           <p className="lexend-mini h4"> {element} </p>
         </div>

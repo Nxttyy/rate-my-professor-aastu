@@ -100,7 +100,7 @@ html, body, #root {
 
 .search-suggestion {
   background-color: #B6EADA;
-  opacity: 0.5;
+  opacity: 0.6;
   width: 100%;
 
 }
@@ -108,8 +108,8 @@ html, body, #root {
 .search-suggestion p{
   
   opacity: 0.9;
-  color: black;
-  font-size:medium;
+  color: #191929;
+  font-size:large;
 }
 
 .some-profs {
