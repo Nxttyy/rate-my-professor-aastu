@@ -98,3 +98,9 @@ html, body, #root {
   color: black;
   font-size:medium;
 }
+
+.some-profs {
+  color: #0B2447;
+  display: flex;
+  flex-direction: row;
+}

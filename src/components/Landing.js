@@ -10,7 +10,6 @@ function Landing(){
             {suggestions.map((element, index) => (
 
                 <div className='search-suggestion my-2 p-1 rounded'><p className='lexend-mini'>{element}</p></div>
-                // <p>{element}</p>
             ))}
         </div>
     )
