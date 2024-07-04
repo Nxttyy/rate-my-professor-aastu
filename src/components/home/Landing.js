@@ -1,5 +1,4 @@
-import "../App.css";
-import teacher from "../assets/images/teacher.png";
+import "../../App.css";
 // /home/natty/Dev/Projs/rate-my-professor-aastu/src/assets/images/teacher.png
 let suggestions = [
   "Mr. Prof And",
