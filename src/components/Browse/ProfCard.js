@@ -23,6 +23,9 @@ function ProfCard() {
           </div>
         </div>
       </Link>
+
+
+
       <div className="d-flex gap-4 text-start border-start border-bottom shadow-sm p-3 w-100">
         <div className="prof-pic">
           <img className="prof-img" src={teacher} />

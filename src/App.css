@@ -116,4 +116,6 @@ body,
 .like-dislike {
   height: 30px;
   width: 30px;
+  color: var(--button-text-color);
+  fill:red;
 }

@@ -1,5 +1,6 @@
 import teacher_f from "../assets/images/teacher-f.png";
-import like from "../assets/images/like.png";
+// import like from "../assets/images/like.png";
+import like from "../assets/images/like-icon.svg";
 import dislike from "../assets/images/dont-like.png";
 
 function ProfDetail() {
@@ -21,6 +22,16 @@ function ProfDetail() {
           </div>
         </div>
       </div>
+
+      <div className="w-100 text-center">
+        <button className="w-100 py-1 rounded my-button">
+          <p className="h-3"> Edit Professor Info</p>
+        </button>
+        <p className="h-4 hint m-2">
+          contribute by adding missing or editing wrong info.
+        </p>
+      </div>
+
       <div className="d-flex flex-column gap-3">
         <p className="h2 mt-0">commets and ratings</p>
         <div>
