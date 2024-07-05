@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import AddProf  from "./components/AddProf";
 import Browse from "./components/Browse";
 
+import ProfDetail from "./components/ProfDetail";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
          <Route path='/' element={<Home/>} />
          <Route path='/add-prof' element={<AddProf/>} />
          <Route path='/browse' element={<Browse/>} />
+         <Route path='/prof-detail' element={<ProfDetail/>} />
 
        </Routes>
 

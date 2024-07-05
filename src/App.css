@@ -21,6 +21,11 @@ body,
   background-color: var(--bg-color);
 }
 
+.my-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .App {
   text-align: center;
   color: var(--text-color);
@@ -93,10 +98,11 @@ body,
   width: 160px;
   height: 160px;
 }
-
-.add-prof {
+.custom-border {
+  border-left: 5px solid #007bff; /* Bootstrap's primary color */
+  background-color: var(--secondary-bg-color);
+  color: var(--button-text-color);
 }
-
 
 .my-button {
   background-color: var(--button-color);
@@ -105,4 +111,9 @@ body,
 
 .hint {
   color: var(--subtitle-text-color);
+}
+
+.like-dislike {
+  height: 30px;
+  width: 30px;
 }
