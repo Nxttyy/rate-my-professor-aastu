@@ -1,9 +1,7 @@
-// 'use client';
-
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-// import { useEffect } from 'react';
+import '../styles/globals.css';
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -20,15 +18,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined' && window.Telegram) {
-  //     console.log('script loaded correctly, window.Telegram has been populated');
-  //     console.log(window.Telegram.WebApp)
-  //     console.log("***")
-  //     console.log(window.Telegram.WebApp.initData)
-
-  //   }
-  // }, []);
 
   return (
     <html lang="en">
@@ -36,9 +25,6 @@ export default function RootLayout({
         <Script
           src="https://telegram.org/js/telegram-web-app.js"
           strategy="beforeInteractive"
-          // onLoad={() => {
-          //   console.log('Script loaded and executed');
-          // }}
         />
       </head>
       <body className={inter.className}>{children}</body>
