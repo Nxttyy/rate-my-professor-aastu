@@ -1,12 +1,13 @@
 /* page.module.css */
 
 .container {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--bg_color);
+  color: var(--text_color);
 }
 
-.container h1 {
-  color: var(--text-color);
+.container h1 p {
+  background-color: black;
+  color: var(--text_color);
   
 }
 
