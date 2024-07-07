@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import styles from "./page.module.css"; // Import your CSS file
 import { CSSProperties } from 'react';
-import { stringify } from "querystring";
 
 interface Telegram {
   WebApp: any;
@@ -28,7 +27,6 @@ export default function Home() {
     if (typeof window !== 'undefined' && window.Telegram) {
       console.log('script loaded correctly, window.Telegram has been populated');
       setThemeParams(window.Telegram.WebApp.themeParams);
-      // setThemeParams({"background-color" : "red"});
 
     }
   }, []);
