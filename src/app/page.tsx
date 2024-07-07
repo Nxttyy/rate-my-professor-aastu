@@ -44,8 +44,8 @@ export default function Home() {
     return style;
   }, {} as CustomCSSProperties);
 
-  console.log("initDataFromSdk")
-  console.log(initDataFromSdk)
+  // console.log("initDataFromSdk")
+  // console.log(initDataFromSdk)
 
   return (
     <div style={themeStyle} className={styles.container}>
