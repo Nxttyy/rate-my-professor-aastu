@@ -39,7 +39,7 @@ declare global {
 
 export default function Home() {
   // let _themeParams:any = ["default"];
-  const [_themeParams, setThemeParams] = useState(["initialState"])
+  const [_themeParams, setThemeParams] = useState({"name":"initialState"})
   // const setThemeParams = (param) => {
   //   _themeParams = param;
   // }
@@ -52,7 +52,7 @@ export default function Home() {
       console.log("***")
       console.log(window.Telegram.WebApp.initData)
       console.log(window.Telegram.WebApp.themeParams)
-      setThemeParams((window.Telegram.WebApp.themeParams).toString())
+      setThemeParams((window.Telegram.WebApp.themeParams))
       // _themeParams = window.Telegram.WebApp.themeParams
 
     }
@@ -64,8 +64,9 @@ export default function Home() {
 
 
       <h1>rate my prof next</h1>
-      <p>  {_themeParams}
-      </p>
+      {Object.keys(_themeParams).map((key) => (
+        <p key={key}>{`${key}: ${_themeParams[key]}`}</p>
+      ))}
      
     </div>
   );
