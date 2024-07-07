@@ -39,7 +39,7 @@ declare global {
 
 export default function Home() {
   // let _themeParams:any = ["default"];
-  const [_themeParams, setThemeParams] = useState({"name":"initialState"})
+  const [_themeParams, setThemeParams] =  useState<{ [key: string]: any }>({ name: "initialState" });
   // const setThemeParams = (param) => {
   //   _themeParams = param;
   // }
