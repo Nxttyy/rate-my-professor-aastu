@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./page.module.css"; // Import your CSS file
 import { CSSProperties } from 'react';
+import { stringify } from "querystring";
 
 interface Telegram {
   WebApp: any;
@@ -14,6 +15,12 @@ declare global {
   }
 }
 
+
+// Extend CSSProperties to include custom properties
+interface CustomCSSProperties extends CSSProperties {
+  [key: `--${string}`]: string | number;
+}
+
 export default function Home() {
   const [_themeParams, setThemeParams] = useState<{ [key: string]: string }>({});
 
@@ -21,13 +28,15 @@ export default function Home() {
     if (typeof window !== 'undefined' && window.Telegram) {
       console.log('script loaded correctly, window.Telegram has been populated');
       setThemeParams(window.Telegram.WebApp.themeParams);
+      // setThemeParams({"background-color" : "red"});
+
     }
   }, []);
 
-  const themeStyle: CSSProperties = Object.keys(_themeParams).reduce((style, key) => {
-    style[`--${key}`] = _themeParams[key];
+  const themeStyle: CustomCSSProperties = Object.keys(_themeParams).reduce((style, key) => {
+    (style as CustomCSSProperties)[`--${key}`] = _themeParams[key];
     return style;
-  }, {} as CSSProperties);
+  }, {} as CustomCSSProperties);
 
   return (
     <div style={themeStyle} className={styles.container}>
