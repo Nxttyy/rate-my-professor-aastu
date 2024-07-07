@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 
 import Script from 'next/script';
 import { parseInitData } from '@telegram-apps/sdk';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 interface Telegram {
@@ -38,6 +38,12 @@ declare global {
 // }
 
 export default function Home() {
+  // let _themeParams:any = ["default"];
+  const [_themeParams, setThemeParams] = useState(["initialState"])
+  // const setThemeParams = (param) => {
+  //   _themeParams = param;
+  // }
+  
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.Telegram) {
@@ -45,6 +51,9 @@ export default function Home() {
       console.log(window.Telegram.WebApp)
       console.log("***")
       console.log(window.Telegram.WebApp.initData)
+      console.log(window.Telegram.WebApp.themeParams)
+      setThemeParams((window.Telegram.WebApp.themeParams).toString())
+      // _themeParams = window.Telegram.WebApp.themeParams
 
     }
   }, []);
@@ -55,8 +64,8 @@ export default function Home() {
 
 
       <h1>rate my prof next</h1>
-      {/* <p>  {window.Telegram.WebApp}
-      </p> */}
+      <p>  {_themeParams}
+      </p>
      
     </div>
   );
