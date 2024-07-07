@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import styles from "./page.module.css"; // Import your CSS file
 import { CSSProperties } from 'react';
+import { parseInitData } from '@telegram-apps/sdk';
+
+import { initInitData } from '@telegram-apps/sdk';
+
+const initDataFromSdk = initInitData();
 
 interface Telegram {
   WebApp: any;
@@ -29,7 +34,7 @@ export default function Home() {
       console.log('script loaded correctly, window.Telegram has been populated');
       console.log(window.Telegram.WebApp)
       setThemeParams(window.Telegram.WebApp.themeParams);
-      if (window.Telegram.WebApp.WebAppInitData)  setInitData(window.Telegram.WebApp.WebAppInitData);
+      setInitData(window.Telegram.WebApp.initData);
 
     }
   }, []);
@@ -39,6 +44,9 @@ export default function Home() {
     return style;
   }, {} as CustomCSSProperties);
 
+  console.log("initDataFromSdk")
+  console.log(initDataFromSdk)
+
   return (
     <div style={themeStyle} className={styles.container}>
       <h1>rate my prof next</h1>
@@ -46,7 +54,7 @@ export default function Home() {
         <p key={key}>{`${key}: ${_themeParams[key]}`}</p>
       ))}
 
-      {Object.keys(initData).map((key) => (
+      {Object.keys(parseInitData(initData)).map((key) => (
         <p key={key}>{`${key}: ${initData[key]}`}</p>
       ))}
     </div>
