@@ -20,13 +20,16 @@ interface CustomCSSProperties extends CSSProperties {
   [key: `--${string}`]: string | number;
 }
 
+
 export default function Home() {
   const [_themeParams, setThemeParams] = useState<{ [key: string]: string }>({});
-
+  const [initData, setInitData] = useState<{ [key: string]: string }>({obj:"name"});
   useEffect(() => {
     if (typeof window !== 'undefined' && window.Telegram) {
       console.log('script loaded correctly, window.Telegram has been populated');
+      console.log(window.Telegram.WebApp)
       setThemeParams(window.Telegram.WebApp.themeParams);
+      if (window.Telegram.WebApp.WebAppInitData)  setInitData(window.Telegram.WebApp.WebAppInitData);
 
     }
   }, []);
@@ -41,6 +44,10 @@ export default function Home() {
       <h1>rate my prof next</h1>
       {Object.keys(_themeParams).map((key) => (
         <p key={key}>{`${key}: ${_themeParams[key]}`}</p>
+      ))}
+
+      {Object.keys(initData).map((key) => (
+        <p key={key}>{`${key}: ${initData[key]}`}</p>
       ))}
     </div>
   );
