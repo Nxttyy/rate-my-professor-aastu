@@ -1,9 +1,25 @@
+'use client';
+
 
 import Image from "next/image";
 import styles from "./page.module.css";
 
 import Script from 'next/script';
 import { parseInitData } from '@telegram-apps/sdk';
+import { useEffect } from "react";
+
+
+interface Telegram {
+  WebApp: any; // Example type definition, replace with actual types
+  // Add more properties as needed
+}
+
+
+declare global {
+  interface Window {
+    Telegram?: Telegram;
+  }
+}
 
 // Let's imagine, we have init data in a raw format like this. Telegram application is
 // sending it in the exact same format.
@@ -15,8 +31,24 @@ import { parseInitData } from '@telegram-apps/sdk';
 
 // // Extract init data.
 // console.log(parseInitData(initDataString));
+// try {
+//   console.log(window.Telegram.WebApp)
+// } catch (e){
+//   console.log(e)
+// }
 
 export default function Home() {
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.Telegram) {
+      console.log('script loaded correctly, window.Telegram has been populated');
+      console.log(window.Telegram.WebApp)
+      console.log("***")
+      console.log(window.Telegram.WebApp.initData)
+
+    }
+  }, []);
+
  
   return (
     <div>

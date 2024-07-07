@@ -14,18 +14,6 @@ export const metadata: Metadata = {
 };
 
 
-interface Telegram {
-  WebApp: any; // Example type definition, replace with actual types
-  // Add more properties as needed
-}
-
-
-declare global {
-  interface Window {
-    Telegram?: Telegram;
-  }
-}
-
 
 export default function RootLayout({
   children,
