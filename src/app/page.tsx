@@ -5,9 +5,9 @@ import styles from "./page.module.css"; // Import your CSS file
 import { CSSProperties } from 'react';
 import { parseInitData } from '@telegram-apps/sdk';
 
-import { initInitData } from '@telegram-apps/sdk';
+// import { initInitData } from '@telegram-apps/sdk';
 
-const initDataFromSdk = initInitData();
+// const initDataFromSdk = initInitData();
 
 interface Telegram {
   WebApp: any;
