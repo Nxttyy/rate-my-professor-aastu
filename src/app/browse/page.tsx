@@ -29,7 +29,7 @@ export default function Browse() {
     <div>
       <p>browse</p>
       {profs.map((prof, index) => (
-        <Link href={`/detail/${prof['id']}`} >
+        <Link key={prof['id']} href={`/detail/${prof['id']}`} >
           <ProfCard key={prof['id']} prompts={{ id: prof['id'], first_name: prof['first_name'], last_name: prof['last_name'], stars: prof['stars'] }} />
         </Link>
         // <div key={index} className='bg-info mx-3'>
