@@ -71,7 +71,7 @@ export default function Home() {
 
   // if (!initData || !user) {
     return (
-      <div>
+      <div style={themeStyle} className={styles.container}>
         <Landing />
         <CallForAction />
         {/* <p>Loading...</p> */}
@@ -79,4 +79,30 @@ export default function Home() {
 
     )
 
+
+// }
+
+  // return (
+  //   <div style={themeStyle} className={styles.container}>
+  //     <Landing />
+  //     <h1>rate my prof next</h1>
+  //     {Object.keys(_themeParams).map((key) => (
+  //       <p key={key}>{`${key}: ${_themeParams[key]}`}</p>
+  //     ))}
+
+  //     {error ? (
+  //       <p>{error}</p>
+  //     ) : (
+  //       <div>
+  //         <p>User Information:</p>
+  //         <p>{`ID: ${user.id}`}</p>
+  //         <p>{`First Name: ${user.firstName}`}</p>
+  //         <p>{`Last Name: ${user.lastName}`}</p>
+  //         <p>{`Username: ${user.username}`}</p>
+  //         <p>{`Language Code: ${user.languageCode}`}</p>
+  //         <p>{`Is Premium: ${user.isPremium}`}</p>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
 }
