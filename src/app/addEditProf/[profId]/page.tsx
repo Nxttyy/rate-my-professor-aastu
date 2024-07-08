@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 
-export default function addEditProf() {
+export default function AddEditProf() {
     const { profId } = useParams();
     if (profId == "new") {
 
