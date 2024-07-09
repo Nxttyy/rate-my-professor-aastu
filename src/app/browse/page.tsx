@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import ProfCard from "./profCard";
 
+const url = 'https://90aea8e68ffeecafa6029b639e0365bb.serveo.net/profView/'
 const fetchProfs = async () => {
-  const res = await fetch('http://127.0.0.1:8000/profView');
+  const res = await fetch(url);
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');

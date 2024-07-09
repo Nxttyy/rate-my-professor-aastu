@@ -5,9 +5,10 @@ import { useParams } from 'next/navigation';
 import ProfDetailCard from './profDetaiCard';
 import { useEffect, useState } from 'react';
 
+const url ='https://90aea8e68ffeecafa6029b639e0365bb.serveo.net/profView/'
 
 const fetchProfById = async (id:number) => {
-  const res = await fetch(`http://127.0.0.1:8000/profView/${id}/`);
+  const res = await fetch(`${url}${id}/`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
