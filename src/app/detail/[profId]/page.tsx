@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import ProfDetailCard from './profDetaiCard';
 import { useEffect, useState } from 'react';
 
-const url ='https://90aea8e68ffeecafa6029b639e0365bb.serveo.net/profView/'
+const url = 'http://127.0.0.1:8000/profView/'
 
 const fetchProfById = async (id:number) => {
   const res = await fetch(`${url}${id}/`);
@@ -58,7 +58,8 @@ export default function ProfDetail() {
   return (
     <div>
       <p>prof {profId} detail</p>
-      <ProfDetailCard prompts={{ id: 1, first_name: prof['first_name'], last_name: prof['last_name'], stars: prof['stars'] }} />
+      {/* prof['id] or profId */}
+      <ProfDetailCard prompts={{ id: prof['id'], first_name: prof['first_name'], last_name: prof['last_name'], stars: prof['stars'] }} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-const url = 'https://90aea8e68ffeecafa6029b639e0365bb.serveo.net/profView/'
+const url = 'http://127.0.0.1:8000/profView/'
 const fetchSuggestions = async (query:string) => {
 
 
