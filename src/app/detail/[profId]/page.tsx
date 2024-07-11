@@ -20,28 +20,6 @@ const fetchProfById = async (id:number) => {
   return res.json();
 };
 
-// export default function Detail() {
-//     const { profId } = useParams();
-
-
-//   useEffect(() => {
-//     fetchProfs(profId)
-//       .then(data => {
-//         setProfs(data);
-//       })
-//       .catch(error => console.error(error));
-//   }, []); // Empty dependency array means this effect runs only once when the component mounts
-
-
-//   return (
-//     <div>
-//       <p>prof {profId} detail</p>
-//       <ProfDetailCard prompts={{ id: 1, first_name: prof['first_name'], last_name: prof['last_name'], stars: prof['stars'] }} />
-//     </div>
-//   );
-// }
-
-
 
 export default function ProfDetail() {
   const { profId } = useParams<{ profId: string }>();
@@ -64,7 +42,7 @@ export default function ProfDetail() {
   return (
     <div>
       <p>prof {profId} detail</p>
-      <p>{user?.first_name}</p>
+      <p>{user?.firstName}</p>
       <p>ASS</p>
       {/* prof['id] or profId */}
       <ProfDetailCard prompts={{ id: prof['id'], first_name: prof['first_name'], last_name: prof['last_name'], stars: prof['stars'] }} />
