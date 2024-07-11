@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-
-const url = 'http://127.0.0.1:8000/profView/'
+let url = 'https://ceres.pythonanywhere.com/profView/';
+// const url = 'http://127.0.0.1:8000/profView/'
 const fetchSuggestions = async (query:string) => {
 
 

@@ -17,12 +17,15 @@ interface ProfCardProps {
 export default function AddEditProf({ prompts }: ProfCardProps) {
     let pageTitle = '';
     let method = 'POST';
-    let url = 'http://127.0.0.1:8000/profView/';
+    // let url = 'http://127.0.0.1:8000/profView/';
+    let url = 'https://ceres.pythonanywhere.com/profView/';
+
     const [formData, setFormData] = useState({
         id: NaN,
         first_name: '',
         last_name: '',
-        stars: 0
+        // stars: 0,
+        user: 1
     });
 
     const { opType } = useParams();
@@ -33,7 +36,8 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
                 id: prompts.id,
                 first_name: prompts.first_name,
                 last_name: prompts.last_name,
-                stars: prompts.stars
+                // stars: prompts.stars,
+                user: 1
             });
         }
     }, [opType, prompts]);
@@ -42,7 +46,7 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
         pageTitle = "Create New Professor";
     } else {
         pageTitle = "Edit Professor";
-        method = 'PUT';
+        method = 'PATCH';
         url += prompts.id.toString() + '/';
     }
 
@@ -56,54 +60,72 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
+    
         try {
+            let body;
+    
+            if (method === 'POST') {
+                body = JSON.stringify({
+                    first_name: formData.first_name,
+                    last_name: formData.last_name,
+                    user: formData.user,
+                });
+            } else {
+                body = JSON.stringify({
+                    id: formData.id,
+                    first_name: formData.first_name,
+                    last_name: formData.last_name,
+                    user: formData.user,
+                });
+            }
+    
             const response = await fetch(url, {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: body,
             });
-
+    
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
+    
             const result = await response.json();
             console.log('Success:', result);
         } catch (error) {
             console.error('Error:', error);
         }
     };
+    
 
-    return (
-        <div>
-            <p>{pageTitle}</p>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="first_name"
-                    placeholder="First Name"
-                    value={formData.first_name}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Last Name"
-                    value={formData.last_name}
-                    onChange={handleChange}
-                />
-                <input
-                    type="number"
-                    name="stars"
-                    placeholder="Stars"
-                    value={formData.stars}
-                    onChange={handleChange}
-                />
-                <input type="submit" />
-            </form>
-        </div>
-    );
+return (
+    <div>
+        <p>{pageTitle}</p>
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                name="first_name"
+                placeholder="First Name"
+                value={formData.first_name}
+                onChange={handleChange}
+            />
+            <input
+                type="text"
+                name="last_name"
+                placeholder="Last Name"
+                value={formData.last_name}
+                onChange={handleChange}
+            />
+            <input
+                type="number"
+                name="stars"
+                placeholder="Stars"
+            // value={formData.stars}
+            // onChange={handleChange}
+            />
+            <input type="submit" />
+        </form>
+    </div>
+);
 }

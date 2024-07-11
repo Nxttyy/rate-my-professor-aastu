@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import styles from "./page.module.css"; // Import your CSS file
 import { CSSProperties } from 'react';
 import { parseInitData, InitDataParsed, User } from '@telegram-apps/sdk'; // Ensure User type is imported
@@ -63,6 +63,46 @@ export default function Home() {
     }
   }, []);
 
+  const signUser = async (url: any) => {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        first_name: user?.firstName,
+        last_name: user?.lastName,
+        telegram_id: user?.id,
+      }),
+    });
+
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    return res.json();
+  };
+
+
+  useEffect(() => {
+    console.log(user)
+    let url = 'https://ceres.pythonanywhere.com/user/signUser/';
+    // let url = 'http://127.0.0.1:8000/user/signUser/';
+
+    if (user?.firstName){
+      signUser(url)
+      .then((res) => {
+        console.log(res)
+        setUser(res)
+      })
+      .catch((error) => console.error('Error:', error));
+    }
+
+  
+
+  }, [user]);
+
   const themeStyle: CustomCSSProperties = Object.keys(_themeParams).reduce((style, key) => {
     (style as CustomCSSProperties)[`--${key}`] = _themeParams[key];
     return style;
@@ -70,39 +110,15 @@ export default function Home() {
 
 
   // if (!initData || !user) {
-    return (
-      <div style={themeStyle} className={styles.container}>
-        <Landing />
-        <CallForAction />
-        {/* <p>Loading...</p> */}
-      </div>
+  return (
+    <div style={themeStyle} className={styles.container}>
+      <Landing />
+      <CallForAction />
+      <p>{user?.id}</p>
+      {/* <p>{user}</p> */}
+      {/* <p>Loading...</p> */}
+    </div>
 
-    )
+  )
 
-
-// }
-
-  // return (
-  //   <div style={themeStyle} className={styles.container}>
-  //     <Landing />
-  //     <h1>rate my prof next</h1>
-  //     {Object.keys(_themeParams).map((key) => (
-  //       <p key={key}>{`${key}: ${_themeParams[key]}`}</p>
-  //     ))}
-
-  //     {error ? (
-  //       <p>{error}</p>
-  //     ) : (
-  //       <div>
-  //         <p>User Information:</p>
-  //         <p>{`ID: ${user.id}`}</p>
-  //         <p>{`First Name: ${user.firstName}`}</p>
-  //         <p>{`Last Name: ${user.lastName}`}</p>
-  //         <p>{`Username: ${user.username}`}</p>
-  //         <p>{`Language Code: ${user.languageCode}`}</p>
-  //         <p>{`Is Premium: ${user.isPremium}`}</p>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
 }

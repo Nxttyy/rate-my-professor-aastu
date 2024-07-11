@@ -5,7 +5,9 @@ import { useParams } from 'next/navigation';
 import ProfDetailCard from './profDetaiCard';
 import { useEffect, useState } from 'react';
 
-const url = 'http://127.0.0.1:8000/profView/'
+// const url = 'http://127.0.0.1:8000/profView/'
+let url = 'https://ceres.pythonanywhere.com/profView/';
+
 
 const fetchProfById = async (id:number) => {
   const res = await fetch(`${url}${id}/`);
