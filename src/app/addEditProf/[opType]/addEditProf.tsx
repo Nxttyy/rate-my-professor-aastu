@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-
+import { useUser } from '@/app/context/userContext';
 interface Prompts {
     id: number;
     first_name: string;
@@ -16,6 +16,8 @@ interface ProfCardProps {
 
 export default function AddEditProf({ prompts }: ProfCardProps) {
     let pageTitle = '';
+    const { user } = useUser();
+
     let method = 'POST';
     // let url = 'http://127.0.0.1:8000/profView/';
     let url = 'https://ceres.pythonanywhere.com/profView/';
@@ -25,7 +27,7 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
         first_name: '',
         last_name: '',
         // stars: 0,
-        user: 1
+        user: NaN
     });
 
     const { opType } = useParams();
@@ -37,7 +39,7 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
                 first_name: prompts.first_name,
                 last_name: prompts.last_name,
                 // stars: prompts.stars,
-                user: 1
+                user: user?.id || 1
             });
         }
     }, [opType, prompts]);
@@ -68,14 +70,14 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
                 body = JSON.stringify({
                     first_name: formData.first_name,
                     last_name: formData.last_name,
-                    user: formData.user,
+                    user: user?.id,
                 });
             } else {
                 body = JSON.stringify({
                     id: formData.id,
                     first_name: formData.first_name,
                     last_name: formData.last_name,
-                    user: formData.user,
+                    user: user?.id,
                 });
             }
     

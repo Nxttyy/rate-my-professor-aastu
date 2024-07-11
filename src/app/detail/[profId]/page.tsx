@@ -4,6 +4,7 @@
 import { useParams } from 'next/navigation';
 import ProfDetailCard from './profDetaiCard';
 import { useEffect, useState } from 'react';
+import { useUser } from '@/app/context/userContext';
 
 // const url = 'http://127.0.0.1:8000/profView/'
 let url = 'https://ceres.pythonanywhere.com/profView/';
@@ -45,6 +46,7 @@ const fetchProfById = async (id:number) => {
 export default function ProfDetail() {
   const { profId } = useParams<{ profId: string }>();
   const [prof, setProf] = useState();
+  const { user } = useUser();
   // useState<Prompts | null>(null);
 
   useEffect(() => {
@@ -56,10 +58,14 @@ export default function ProfDetail() {
   if (!prof) {
     return <p>Loading...</p>;
   }
+  console.log("#")
+  console.log(user)
 
   return (
     <div>
       <p>prof {profId} detail</p>
+      <p>{user?.first_name}</p>
+      <p>ASS</p>
       {/* prof['id] or profId */}
       <ProfDetailCard prompts={{ id: prof['id'], first_name: prof['first_name'], last_name: prof['last_name'], stars: prof['stars'] }} />
     </div>
