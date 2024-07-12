@@ -1,13 +1,13 @@
 'use client';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import {  User } from '@telegram-apps/sdk'; // Ensure User type is imported
+// import {  User } from '@telegram-apps/sdk'; // Ensure User type is imported
 
 
-// type User = {
-//   firstName: string;
-//   lastName: string;
-//   id: string;
-// };
+type User = {
+  firstName: string;
+  lastName: string;
+  id: number;
+};
 
 type UserContextType = {
   user: User | null;

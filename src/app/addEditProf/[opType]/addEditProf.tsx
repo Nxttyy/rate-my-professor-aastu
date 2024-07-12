@@ -67,6 +67,9 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
             let body;
     
             if (method === 'POST') {
+                console.log({first_name: formData.first_name,
+                    last_name: formData.last_name,
+                    user: user?.id,})
                 body = JSON.stringify({
                     first_name: formData.first_name,
                     last_name: formData.last_name,
