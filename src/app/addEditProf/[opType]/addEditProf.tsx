@@ -27,7 +27,7 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
         first_name: '',
         last_name: '',
         // stars: 0,
-        user: NaN
+        // user: NaN
     });
 
     const { opType } = useParams();
@@ -39,7 +39,7 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
                 first_name: prompts.first_name,
                 last_name: prompts.last_name,
                 // stars: prompts.stars,
-                user: user?.id || 1
+                // user: NaN
             });
         }
     }, [opType, prompts]);
@@ -77,7 +77,7 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
                     id: formData.id,
                     first_name: formData.first_name,
                     last_name: formData.last_name,
-                    user: user?.id,
+                    // user: user?.id,
                 });
             }
     
