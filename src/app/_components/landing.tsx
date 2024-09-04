@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 let url = 'https://ceres.pythonanywhere.com/profView/';
-// const url = 'http://127.0.0.1:8000/profView/'
+ //const url = 'http://127.0.0.1:8000/profView/'
 const fetchSuggestions = async (query:string) => {
 
 
@@ -45,16 +45,16 @@ export default function Landing() {
     };
 
     return (
-        <>
+        <div>
             <p>Search for your professor!</p>
             <input type="text" placeholder="professor name" onChange={handleChange} />
 
 
-      {suggestions.map((prof, index) => (
+      { suggestions.map((prof, index) => (
         <div key={index} className='bg-info mx-3'>
           <p>{prof['first_name']}</p>
         </div>
       ))}
-    </>
+    </div>
   );
 }

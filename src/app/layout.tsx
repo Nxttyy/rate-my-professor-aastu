@@ -5,6 +5,7 @@ import './page.module.css';
 import Script from 'next/script';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from 'next/link';
+import './10015.css'
 
 import { UserProvider } from "./context/userContext";
 
@@ -17,7 +18,11 @@ export const metadata: Metadata = {
 
 function Nav() {
   return (
-    <Link href="/">home</Link>
+    <div className="d-flex justify-content-evenly ">
+      <Link href="/">home</Link>
+      <Link href="/browse">Browse</Link>
+      <Link href="/addEditProf/new">Add</Link>
+    </div>
   )
 }
 

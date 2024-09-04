@@ -105,9 +105,9 @@ export default function AddEditProf({ prompts }: ProfCardProps) {
     
 
 return (
-    <div>
+    <div className="mt-5 container">
         <p>{pageTitle}</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
             <input
                 type="text"
                 name="first_name"
@@ -121,13 +121,6 @@ return (
                 placeholder="Last Name"
                 value={formData.last_name}
                 onChange={handleChange}
-            />
-            <input
-                type="number"
-                name="stars"
-                placeholder="Stars"
-            // value={formData.stars}
-            // onChange={handleChange}
             />
             <input type="submit" />
         </form>
