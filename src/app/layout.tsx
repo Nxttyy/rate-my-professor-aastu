@@ -7,7 +7,7 @@ import Script from 'next/script';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './10015.css'
 
-import Nav from './_components/Nav.tsx'
+import Nav from './_components/Nav'
 
 
 import { UserProvider } from "./context/userContext";

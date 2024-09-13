@@ -7,7 +7,6 @@ import { parseInitData, InitDataParsed, User } from '@telegram-apps/sdk'; // Ens
 import Landing from "./_components/landing";
 import CallForAction from "./_components/callForAction";
 import { useUser } from "./context/userContext";
-import Nav from './_components/Nav.tsx'
 
 
 interface Telegram {
