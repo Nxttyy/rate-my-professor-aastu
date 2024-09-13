@@ -7,6 +7,7 @@ import { parseInitData, InitDataParsed, User } from '@telegram-apps/sdk'; // Ens
 import Landing from "./_components/landing";
 import CallForAction from "./_components/callForAction";
 import { useUser } from "./context/userContext";
+import Nav from './_components/Nav.tsx'
 
 
 interface Telegram {
@@ -110,16 +111,16 @@ export default function Home() {
     }
   };
   
-
-  const themeStyle: CustomCSSProperties = Object.keys(_themeParams).reduce((style, key) => {
-    (style as CustomCSSProperties)[`--${key}`] = _themeParams[key];
-    return style;
-  }, {} as CustomCSSProperties);
-
-
+  //
+  //const themeStyle: CustomCSSProperties = Object.keys(_themeParams).reduce((style, key) => {
+  //  (style as CustomCSSProperties)[`--${key}`] = _themeParams[key];
+  //  return style;
+  //}, {} as CustomCSSProperties);
+  //
+  //
   // if (!initData || !user) {
   return (
-    <div style={themeStyle} className={`${styles.container} d-flex flex-column m-5`}>
+    <div  className={`${styles.container} d-flex flex-column m-5`}>
       <Landing />
       {/* <CallForAction /> */}
       {/* <p>{user}</p> */}
