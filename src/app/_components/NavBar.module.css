@@ -4,7 +4,8 @@
   justify-content: space-evenly;
   background-color: var(--bg_color);
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 11% 9% 10% 9% / 62% 44% 25% 25%;
+  /*border-radius: 50px;*/
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
