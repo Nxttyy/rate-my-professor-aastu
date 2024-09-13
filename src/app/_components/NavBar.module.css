@@ -1,0 +1,55 @@
+
+.navBar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--bg_color);
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  /*margin: 20px 5px 10px 5px;*/
+}
+
+.navItem {
+  display: flex;
+  gap:5px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px 5px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #777;
+  cursor: pointer;
+}
+
+.navItem span {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #777;
+}
+
+.navItem:hover {
+  background-color: #e0e0e0;
+}
+
+.active {
+  transform: scale(1.2);
+  background-color: #007bff;
+  color: white;
+  flex-grow: 4;
+}
+
+.active span {
+  color: white; /* Ensures the text color is visible on the active button */
+}
+
+.icon {
+  font-size: 24px;
+  /*margin-bottom: 5px;*/
+}
+
