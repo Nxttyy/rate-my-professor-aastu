@@ -45,9 +45,14 @@ export default function Landing() {
     };
 
     return (
+
+
         <div>
-            <p>Search for your professor!</p>
+          <div class="glitch-wrapper d-flex flex-column p-5">
+           <div class="glitch" data-glitch="Search for your professor!">Search for your professor!</div>
+
             <input type="text" placeholder="professor name" onChange={handleChange} />
+          </div>
 
 
       { suggestions.map((prof, index) => (
